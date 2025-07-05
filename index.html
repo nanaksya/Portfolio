@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nana Acheampong | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background-color: #fdfaf6;
+    }
+
+    header {
+      position: relative;
+      padding: 1.8rem 1rem .25rem;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 2.125rem;
+      text-transform: uppercase;
+      color: #0c3c26;
+    }
+
+    .croc-icon {
+      width: 85px;
+      height: auto;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .social {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social a {
+      color: #781d1d;
+      text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: .9rem;
+      transition: color .2s;
+    }
+
+    .social a:hover {
+      color: #a83232;
+    }
+
+    .scroll-wrapper {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    section {
+      flex: 1;
+      overflow-y: auto;
+      padding: .1rem 1.7rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      border-bottom: 1px solid #ccc;
+      width: 100%;
+      padding-right: calc((100% - 80%) / 2);
+      padding-left: calc((100% - 80%) / 2);
+      text-align: center;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+      position: relative;
+    }
+
+    section::after {
+      content: "";
+      display: block;
+      margin: 1.7rem auto;
+      width: 51px;
+      height: 1.7px;
+      background: #781d1d;
+      opacity: .4;
+    }
+
+    h2 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.275rem;
+      margin-bottom: .85rem;
+      text-transform: uppercase;
+      color: #0c3c26;
+    }
+
+    .work-item {
+      margin-bottom: 1.7rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .work-item a {
+      font-family: 'Barlow', sans-serif;
+      font-size: .85rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .work-item a:hover {
+      color: #a83232;
+    }
+
+    .subheading {
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      font-size: .68rem;
+      margin-top: .25rem;
+    }
+
+    .thumbnail {
+      display: none;
+      position: relative;
+      width: 221px;
+      height: auto;
+      margin: .5rem auto 0;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0,0,0,.1);
+      background: #fff;
+      pointer-events: none;
+    }
+
+    .work-item:hover .thumbnail {
+      display: block;
+    }
+
+    @media (max-width:768px) {
+      .thumbnail {
+        display: block !important;
+        position: static;
+        width: 100%;
+        margin-top: .5rem;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Nana Acheampong</h1>
+      <img src="images/Logo.webp" alt="Wild Dog" class="croc-icon">
+    </div>
+    <nav class="social">
+      <a href="mailto:nana@example.com" aria-label="Email">✉️</a>
+      <a href="https://www.linkedin.com/in/nanaacheampong" aria-label="LinkedIn">in</a>
+        </nav>
+  </header>
+
+  <div class="scroll-wrapper">
+    <section id="written">
+      <h2 style="color:#781d1d;">Articles</h2>
+
+      <div class="work-item">
+        <a href="https://nycdailypost.com/2023/04/04/world/money-ghanaians-discuss-economic-crisis-futures/" target="_blank" rel="noopener noreferrer">Money Doesn’t Like Noise.<img class="thumbnail" src="thumbnails/MoneyNoise.webp" alt="Two Ghanaians and city skyline"></a>
+        <span class="subheading">Two young Ghanaians on their futures, and the current economic crisis.</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://nycdailypost.com/2024/09/09/us/st-petersburg-times-black-pages-jordan-park-district/" target="_blank" rel="noopener noreferrer">Who Was Nat Cherry?<img class="thumbnail" src="thumbnails/Cherrys.webp" alt="Black community newspaper archive"></a>
+        <span class="subheading">How the St. Petersburg Times’ Black Pages strengthened community in the Jordan Park district.</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://nycdailypost.com/2025/01/06/world/ghana-new-president-struggling-economy-voting-irregularities/" target="_blank" rel="noopener noreferrer">Ghana Elects New President.<img class="thumbnail" src="thumbnails/GhanaElects.webp" alt="Ghanaian flag and ballot"></a>
+        <span class="subheading">Ghana elects new president amid struggling economy, voting irregularities</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://nycdailypost.com/2023/05/12/world/geopolitics-of-the-grand-ethiopian-renaissance-dam/" target="_blank" rel="noopener noreferrer">Geopolitics of the Grand Renaissance Dam.<img class="thumbnail" src="thumbnails/EthiopiaDam.webp" alt="Ethiopian dam"></a>
+        <span class="subheading">Ethiopia is aggressively pursuing the filling of the Grand Ethiopian Renaissance Dam.</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://nycdailypost.com/2024/08/28/entertainment/alternative-percussion-short-history-vibraphone/" target="_blank" rel="noopener noreferrer">Alternative Percussion<img class="thumbnail" src="thumbnails/Ayers.webp" alt="Vibraphone close-up"></a>
+        <span class="subheading">A short history of the vibraphone</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://nycdailypost.com/2024/12/29/world/ancient-grain-fonio-rural-economies-west-africa/" target="_blank" rel="noopener noreferrer">The Fonio Revival<img class="thumbnail" src="thumbnails/Fonio.webp" alt="Fonio grain"></a>
+        <span class="subheading">The West African grain fonio could soon become an international cash crop.</span>
+      </div>
+    </section>
+
+    <section id="multimedia">
+      <h2 style="color:#781d1d;">Multimedia</h2>
+
+      <div class="work-item">
+        <a href="https://www.youtube.com/watch?v=4sDNW5FFVpc" target="_blank" rel="noopener noreferrer">Dorothy’s Utopia<img class="thumbnail" src="thumbnails/Dorothy.webp" alt="Dorothy Abu"></a>
+        <span class="subheading">A BlackPrint Profile of Dorothy Abu</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://www.youtube.com/watch?v=8HJbUOeWfEg" target="_blank" rel="noopener noreferrer">A Space Inbetween<img class="thumbnail" src="thumbnails/INbetween.webp" alt="Anthony & Donovan"></a>
+        <span class="subheading">A BlackPrint Profile of Anthony and Donovan Handy</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://www.youtube.com/watch?v=_3K5EfZLAAk" target="_blank" rel="noopener noreferrer">Sundays With Denver<img class="thumbnail" src="thumbnails/Denver.webp" alt="Denver artist"></a>
+        <span class="subheading">Featuring Denver, an unhoused Austin artist</span>
+      </div>
+
+      <div class="work-item">
+        <a href="https://www.youtube.com/watch?v=8j15WrV8wG0" target="_blank" rel="noopener noreferrer">American As Apple Pie<img class="thumbnail" src="thumbnails/Apple Pie.webp" alt="Baseball vintage"></a>
+        <span class="subheading">Black minor league baseball players tell their story.</span>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
