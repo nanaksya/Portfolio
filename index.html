@@ -17,55 +17,60 @@
       background-color: #fdfaf6;
     }
 
+    /* ===== HEADER: name + links in same row, logo on right ===== */
     header {
-      position: relative;
-      padding: 1.8rem 1rem .25rem;
+      padding: 1.2rem 1rem .5rem;
+      border-bottom: 1px solid #e6dfd5;
     }
 
-    .header-content {
+    .header-bar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      position: relative;
+      justify-content: space-between;
+      gap: .75rem;
     }
 
-    header h1 {
-      font-family: 'Barlow', sans-serif;
-      font-size: 2.125rem;
-      text-transform: uppercase;
-      color: #0c3c26;
-    }
-
-    .croc-icon {
-      width: 85px;
-      height: auto;
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
+    /* Left side: links + name on ONE row */
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex: 1 1 auto;
+      min-width: 0; /* allow text to wrap nicely */
     }
 
     .social {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
       display: flex;
-      gap: 1rem;
+      gap: .75rem;
+      align-items: center;
+      flex: 0 0 auto; /* don’t let icons stretch */
     }
 
     .social a {
       color: #781d1d;
       text-decoration: none;
       font-family: 'Barlow', sans-serif;
-      font-size: .9rem;
+      font-size: .95rem;
       transition: color .2s;
     }
+    .social a:hover { color: #a83232; }
 
-    .social a:hover {
-      color: #a83232;
+    header h1 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 2.025rem;
+      text-transform: uppercase;
+      color: #0c3c26;
+      line-height: 1.1;
+      white-space: normal;
     }
 
+    .croc-icon {
+      width: 85px;
+      height: auto;
+      flex: 0 0 auto; /* fixed size on the right */
+    }
+
+    /* ===== SECTIONS ===== */
     .scroll-wrapper {
       flex: 1;
       overflow: hidden;
@@ -88,10 +93,7 @@
       text-align: center;
     }
 
-    section:last-of-type {
-      border-bottom: none;
-      position: relative;
-    }
+    section:last-of-type { border-bottom: none; position: relative; }
 
     section::after {
       content: "";
@@ -127,10 +129,7 @@
       font-weight: bold;
       text-transform: uppercase;
     }
-
-    .work-item a:hover {
-      color: #a83232;
-    }
+    .work-item a:hover { color: #a83232; }
 
     .subheading {
       font-style: italic;
@@ -150,12 +149,9 @@
       background: #fff;
       pointer-events: none;
     }
+    .work-item:hover .thumbnail { display: block; }
 
-    .work-item:hover .thumbnail {
-      display: block;
-    }
-
-    @media (max-width:768px) {
+    @media (max-width: 768px) {
       .thumbnail {
         display: block !important;
         position: static;
@@ -165,18 +161,38 @@
         border: none;
       }
     }
+
+    /* ===== MOBILE TUNING ===== */
+    @media (max-width: 640px) {
+      .header-bar { gap: .5rem; }
+      .brand-row { gap: .5rem; }
+      header h1 { font-size: 1.55rem; }
+      .social a { font-size: .9rem; }
+      .croc-icon { width: 64px; }
+    }
+
+    /* Hide logo on very small phones */
+    @media (max-width: 340px) {
+      .croc-icon { display: none; }
+    }
+
+    @media (max-width: 380px) {
+      header h1 { font-size: 1.4rem; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <h1>Nana Acheampong</h1>
+    <div class="header-bar">
+      <div class="brand-row">
+        <nav class="social">
+          <a href="mailto:nana@example.com" aria-label="Email">✉️</a>
+          <a href="https://www.linkedin.com/in/nanaacheampong" aria-label="LinkedIn">in</a>
+        </nav>
+        <h1>Nana Acheampong</h1>
+      </div>
       <img src="images/Logo.webp" alt="Wild Dog" class="croc-icon">
     </div>
-    <nav class="social">
-      <a href="mailto:nana@example.com" aria-label="Email">✉️</a>
-      <a href="https://www.linkedin.com/in/nanaacheampong" aria-label="LinkedIn">in</a>
-        </nav>
   </header>
 
   <div class="scroll-wrapper">
@@ -240,3 +256,4 @@
   </div>
 </body>
 </html>
+
