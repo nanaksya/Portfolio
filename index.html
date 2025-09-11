@@ -17,7 +17,7 @@
       background-color: #fdfaf6;
     }
 
-    /* ===== HEADER: name (left) | icons (center) | logo (right) ===== */
+    /* ===== HEADER: name (left) | logo (right) ===== */
     header {
       padding: 1.2rem 1rem .5rem;
       border-bottom: 1px solid #e6dfd5;
@@ -25,7 +25,7 @@
 
     .header-bar {
       display: grid;
-      grid-template-columns: 1fr auto 1fr; /* left flexible | center content | right flexible */
+      grid-template-columns: 1fr auto; /* left flexible | right logo */
       align-items: center;
       column-gap: 12px;
     }
@@ -40,22 +40,6 @@
       line-height: 1.1;
       white-space: normal;     /* allow wrap on smaller widths */
     }
-
-    .social {
-      justify-self: center;    /* center */
-      display: flex;
-      gap: .9rem;
-      align-items: center;
-    }
-
-    .social a {
-      color: #781d1d;
-      text-decoration: none;
-      font-family: 'Barlow', sans-serif;
-      font-size: .95rem;
-      transition: color .2s;
-    }
-    .social a:hover { color: #a83232; }
 
     .croc-icon {
       justify-self: end;       /* right */
@@ -160,7 +144,6 @@
     @media (max-width: 640px) {
       header h1 { font-size: 1.6rem; }
       .croc-icon { width: 64px; }
-      .social a { font-size: .9rem; }
     }
 
     /* Hide logo on very small phones */
@@ -177,12 +160,6 @@
   <header>
     <div class="header-bar">
       <h1>Nana Acheampong</h1>
-
-      <nav class="social">
-        <a href="mailto:nana@example.com" aria-label="Email">✉️</a>
-        <a href="https://www.linkedin.com/in/nanaacheampong" aria-label="LinkedIn">in</a>
-      </nav>
-
       <img src="images/Logo.webp" alt="Wild Dog" class="croc-icon">
     </div>
   </header>
@@ -248,4 +225,5 @@
   </div>
 </body>
 </html>
+
 
