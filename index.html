@@ -25,7 +25,7 @@
 
     .header-bar {
       display: grid;
-      grid-template-columns: 1fr auto; /* left flexible | right logo */
+      grid-template-columns: 1fr auto;
       align-items: center;
       column-gap: 12px;
     }
@@ -34,7 +34,7 @@
       justify-self: start;
       text-align: left;
       font-family: 'Barlow', sans-serif;
-      font-size: 1.5rem; /* reduced from 2.025rem */
+      font-size: 1.5rem;
       text-transform: uppercase;
       color: #0c3c26;
       line-height: 1.1;
@@ -47,20 +47,35 @@
       height: auto;
       display: block;
       transition: transform 0.2s ease;
-}
-    .croc-icon:hover {
-      transform: scale(1.05);
-}
-
-    /* ===== SECTIONS ===== */
-    .scroll-wrapper {
-      flex: 1;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
     }
 
-    section {
+    .croc-icon:hover {
+      transform: scale(1.05);
+    }
+
+    .scroll-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .scroll-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .scroll-section h2 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.275rem;
+      margin: 0.9rem auto 0.5rem;
+      text-transform: uppercase;
+      color: #781d1d;
+    }
+
+    .scroll-area {
       flex: 1;
       overflow-y: auto;
       padding: .1rem 1.7rem 0.85rem;
@@ -68,16 +83,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      border-bottom: 1px solid #ccc;
-      width: 100%;
+      text-align: center;
       padding-right: calc((100% - 80%) / 2);
       padding-left: calc((100% - 80%) / 2);
-      text-align: center;
+      border-bottom: 1px solid #ccc;
     }
 
-    section:last-of-type { border-bottom: none; position: relative; }
+    .scroll-area:last-child {
+      border-bottom: none;
+    }
 
-    section::after {
+    .scroll-area::after {
       content: "";
       display: block;
       margin: 1.7rem auto;
@@ -85,14 +101,6 @@
       height: 1.7px;
       background: #781d1d;
       opacity: .4;
-    }
-
-    h2 {
-      font-family: 'Barlow', sans-serif;
-      font-size: 1.275rem;
-      margin-bottom: .85rem;
-      text-transform: uppercase;
-      color: #0c3c26;
     }
 
     .work-item {
@@ -111,6 +119,7 @@
       font-weight: bold;
       text-transform: uppercase;
     }
+
     .work-item a:hover { color: #a83232; }
 
     .subheading {
@@ -131,6 +140,7 @@
       background: #fff;
       pointer-events: none;
     }
+
     .work-item:hover .thumbnail { display: block; }
 
     @media (max-width: 768px) {
@@ -144,13 +154,11 @@
       }
     }
 
-    /* ===== MOBILE TUNING ===== */
     @media (max-width: 640px) {
       header h1 { font-size: 1.6rem; }
       .croc-icon { width: 64px; }
     }
 
-    /* Hide logo on very small phones */
     @media (max-width: 340px) {
       .croc-icon { display: none; }
     }
@@ -171,66 +179,61 @@
   </header>
 
   <div class="scroll-wrapper">
-    <section id="written">
-      <h2 style="color:#781d1d;">Articles</h2>
-
-      <div class="work-item">
-        <a href="https://nycdailypost.com/2023/04/04/world/money-ghanaians-discuss-economic-crisis-futures/" target="_blank" rel="noopener noreferrer">Money Doesn’t Like Noise.<img class="thumbnail" src="thumbnails/MoneyNoise.webp" alt="Two Ghanaians and city skyline"></a>
-        <span class="subheading">Two young Ghanaians on their futures, and the current economic crisis.</span>
+    <!-- Articles Section -->
+    <div class="scroll-section">
+      <h2>Articles</h2>
+      <div class="scroll-area">
+        <!-- All work-items for Articles -->
+        <div class="work-item">
+          <a href="https://nycdailypost.com/2023/04/04/world/money-ghanaians-discuss-economic-crisis-futures/" target="_blank">Money Doesn’t Like Noise.<img class="thumbnail" src="thumbnails/MoneyNoise.webp" alt="Two Ghanaians and city skyline"></a>
+          <span class="subheading">Two young Ghanaians on their futures, and the current economic crisis.</span>
+        </div>
+        <div class="work-item">
+          <a href="https://nycdailypost.com/2024/09/09/us/st-petersburg-times-black-pages-jordan-park-district/" target="_blank">Who Was Nat Cherry?<img class="thumbnail" src="thumbnails/Cherrys.webp" alt="Black community newspaper archive"></a>
+          <span class="subheading">How the St. Petersburg Times’ Black Pages strengthened community in the Jordan Park district.</span>
+        </div>
+        <div class="work-item">
+          <a href="https://nycdailypost.com/2025/01/06/world/ghana-new-president-struggling-economy-voting-irregularities/" target="_blank">Ghana Elects New President.<img class="thumbnail" src="thumbnails/GhanaElects.webp" alt="Ghanaian flag and ballot"></a>
+          <span class="subheading">Ghana elects new president amid struggling economy, voting irregularities</span>
+        </div>
+        <div class="work-item">
+          <a href="https://nycdailypost.com/2023/05/12/world/geopolitics-of-the-grand-ethiopian-renaissance-dam/" target="_blank">Geopolitics of the Grand Renaissance Dam.<img class="thumbnail" src="thumbnails/EthiopiaDam.webp" alt="Ethiopian dam"></a>
+          <span class="subheading">Ethiopia is aggressively pursuing the filling of the Grand Ethiopian Renaissance Dam.</span>
+        </div>
+        <div class="work-item">
+          <a href="https://nycdailypost.com/2024/08/28/entertainment/alternative-percussion-short-history-vibraphone/" target="_blank">Alternative Percussion<img class="thumbnail" src="thumbnails/Ayers.webp" alt="Vibraphone close-up"></a>
+          <span class="subheading">A short history of the vibraphone</span>
+        </div>
+        <div class="work-item">
+          <a href="https://nycdailypost.com/2024/12/29/world/ancient-grain-fonio-rural-economies-west-africa/" target="_blank">The Fonio Revival<img class="thumbnail" src="thumbnails/Fonio.webp" alt="Fonio grain"></a>
+          <span class="subheading">The West African grain fonio could soon become an international cash crop.</span>
+        </div>
       </div>
+    </div>
 
-      <div class="work-item">
-        <a href="https://nycdailypost.com/2024/09/09/us/st-petersburg-times-black-pages-jordan-park-district/" target="_blank" rel="noopener noreferrer">Who Was Nat Cherry?<img class="thumbnail" src="thumbnails/Cherrys.webp" alt="Black community newspaper archive"></a>
-        <span class="subheading">How the St. Petersburg Times’ Black Pages strengthened community in the Jordan Park district.</span>
+    <!-- Multimedia Section -->
+    <div class="scroll-section">
+      <h2>Multimedia</h2>
+      <div class="scroll-area">
+        <!-- All work-items for Multimedia -->
+        <div class="work-item">
+          <a href="https://www.youtube.com/watch?v=4sDNW5FFVpc" target="_blank">Dorothy’s Utopia<img class="thumbnail" src="thumbnails/Dorothy.webp" alt="Dorothy Abu"></a>
+          <span class="subheading">A BlackPrint Profile of Dorothy Abu</span>
+        </div>
+        <div class="work-item">
+          <a href="https://www.youtube.com/watch?v=8HJbUOeWfEg" target="_blank">A Space Inbetween<img class="thumbnail" src="thumbnails/INbetween.webp" alt="Anthony & Donovan"></a>
+          <span class="subheading">A BlackPrint Profile of Anthony and Donovan Handy</span>
+        </div>
+        <div class="work-item">
+          <a href="https://www.youtube.com/watch?v=_3K5EfZLAAk" target="_blank">Sundays With Denver<img class="thumbnail" src="thumbnails/Denver.webp" alt="Denver artist"></a>
+          <span class="subheading">Featuring Denver, an unhoused Austin artist</span>
+        </div>
+        <div class="work-item">
+          <a href="https://www.youtube.com/watch?v=8j15WrV8wG0" target="_blank">American As Apple Pie<img class="thumbnail" src="thumbnails/Apple Pie.webp" alt="Baseball vintage"></a>
+          <span class="subheading">Black minor league baseball players tell their story.</span>
+        </div>
       </div>
-
-      <div class="work-item">
-        <a href="https://nycdailypost.com/2025/01/06/world/ghana-new-president-struggling-economy-voting-irregularities/" target="_blank" rel="noopener noreferrer">Ghana Elects New President.<img class="thumbnail" src="thumbnails/GhanaElects.webp" alt="Ghanaian flag and ballot"></a>
-        <span class="subheading">Ghana elects new president amid struggling economy, voting irregularities</span>
-      </div>
-
-      <div class="work-item">
-        <a href="https://nycdailypost.com/2023/05/12/world/geopolitics-of-the-grand-ethiopian-renaissance-dam/" target="_blank" rel="noopener noreferrer">Geopolitics of the Grand Renaissance Dam.<img class="thumbnail" src="thumbnails/EthiopiaDam.webp" alt="Ethiopian dam"></a>
-        <span class="subheading">Ethiopia is aggressively pursuing the filling of the Grand Ethiopian Renaissance Dam.</span>
-      </div>
-
-      <div class="work-item">
-        <a href="https://nycdailypost.com/2024/08/28/entertainment/alternative-percussion-short-history-vibraphone/" target="_blank" rel="noopener noreferrer">Alternative Percussion<img class="thumbnail" src="thumbnails/Ayers.webp" alt="Vibraphone close-up"></a>
-        <span class="subheading">A short history of the vibraphone</span>
-      </div>
-
-      <div class="work-item">
-        <a href="https://nycdailypost.com/2024/12/29/world/ancient-grain-fonio-rural-economies-west-africa/" target="_blank" rel="noopener noreferrer">The Fonio Revival<img class="thumbnail" src="thumbnails/Fonio.webp" alt="Fonio grain"></a>
-        <span class="subheading">The West African grain fonio could soon become an international cash crop.</span>
-      </div>
-    </section>
-
-    <section id="multimedia">
-      <h2 style="color:#781d1d;">Multimedia</h2>
-
-      <div class="work-item">
-        <a href="https://www.youtube.com/watch?v=4sDNW5FFVpc" target="_blank" rel="noopener noreferrer">Dorothy’s Utopia<img class="thumbnail" src="thumbnails/Dorothy.webp" alt="Dorothy Abu"></a>
-        <span class="subheading">A BlackPrint Profile of Dorothy Abu</span>
-      </div>
-
-      <div class="work-item">
-        <a href="https://www.youtube.com/watch?v=8HJbUOeWfEg" target="_blank" rel="noopener noreferrer">A Space Inbetween<img class="thumbnail" src="thumbnails/INbetween.webp" alt="Anthony & Donovan"></a>
-        <span class="subheading">A BlackPrint Profile of Anthony and Donovan Handy</span>
-      </div>
-
-      <div class="work-item">
-        <a href="https://www.youtube.com/watch?v=_3K5EfZLAAk" target="_blank" rel="noopener noreferrer">Sundays With Denver<img class="thumbnail" src="thumbnails/Denver.webp" alt="Denver artist"></a>
-        <span class="subheading">Featuring Denver, an unhoused Austin artist</span>
-      </div>
-
-      <div class="work-item">
-        <a href="https://www.youtube.com/watch?v=8j15WrV8wG0" target="_blank" rel="noopener noreferrer">American As Apple Pie<img class="thumbnail" src="thumbnails/Apple Pie.webp" alt="Baseball vintage"></a>
-        <span class="subheading">Black minor league baseball players tell their story.</span>
-      </div>
-    </section>
+    </div>
   </div>
 </body>
 </html>
-
-
-
