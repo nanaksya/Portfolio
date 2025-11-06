@@ -87,20 +87,21 @@
     }
 
     .scroll-area {
-      flex: 1 1 auto;               /* fill remaining space, allow shrink */
-      min-height: 0;                /* CRITICAL */
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: .1rem 1.7rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-      padding-right: calc((100% - 80%) / 2);
-      padding-left:  calc((100% - 80%) / 2);
-      width: 100%;
-      border-bottom: 1px solid #ccc;
+      flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: .1rem 1.7rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding-right: calc((100% - 80%) / 2);
+  padding-left:  calc((100% - 80%) / 2);
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  scrollbar-gutter: stable both-edges; 
     }
     /* Remove bottom border from last scroll-area */
     .scroll-section:last-of-type .scroll-area { border-bottom: none; }
