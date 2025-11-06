@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nana Acheampong | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Playfair+Display&display=swap&v=2" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -31,22 +31,26 @@
     }
 
     header h1 {
-      justify-self: start;     /* left */
+      justify-self: start;
       text-align: left;
       font-family: 'Barlow', sans-serif;
-      font-size: 2.025rem;
+      font-size: 1.5rem; /* reduced from 2.025rem */
       text-transform: uppercase;
       color: #0c3c26;
       line-height: 1.1;
-      white-space: normal;     /* allow wrap on smaller widths */
+      white-space: normal;
     }
 
     .croc-icon {
-      justify-self: end;       /* right */
+      justify-self: end;
       width: 85px;
       height: auto;
       display: block;
-    }
+      transition: transform 0.2s ease;
+}
+    .croc-icon:hover {
+      transform: scale(1.05);
+}
 
     /* ===== SECTIONS ===== */
     .scroll-wrapper {
@@ -159,8 +163,10 @@
 <body>
   <header>
     <div class="header-bar">
-      <h1>Nana Acheampong</h1>
-      <img src="images/Logo.webp" alt="Wild Dog" class="croc-icon">
+      <h1><a href="index.html" style="text-decoration: none; color: #0c3c26;">Nana Acheampong</a></h1>
+      <a href="africangruel.html">
+        <img src="images/Logo.webp" alt="Wild Dog - African Gruel" class="croc-icon">
+      </a>
     </div>
   </header>
 
