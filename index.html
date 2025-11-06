@@ -17,7 +17,6 @@
       background-color: #fdfaf6;
     }
 
-    /* ===== HEADER: name (left) | logo (right) ===== */
     header {
       padding: 1.2rem 1rem .5rem;
       border-bottom: 1px solid #e6dfd5;
@@ -48,37 +47,37 @@
       display: block;
       transition: transform 0.2s ease;
     }
-
     .croc-icon:hover {
       transform: scale(1.05);
     }
 
     .scroll-wrapper {
       flex: 1;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
 
     .scroll-section {
       flex: 1;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
 
-    .scroll-section h2 {
-      font-family: 'Barlow', sans-serif;
-      font-size: 1.275rem;
-      margin: 0.9rem auto 0.5rem;
-      text-transform: uppercase;
-      color: #781d1d;
+    .scroll-section:not(:last-of-type)::after {
+      content: "";
+      display: block;
+      width: 40%;
+      height: 3px;
+      margin: 1.2rem auto;
+      background-color: #781d1d;
+      opacity: 0.6;
     }
 
     .scroll-area {
       flex: 1;
       overflow-y: auto;
-      padding: .1rem 1.7rem 0.85rem;
+      padding: .1rem 1.7rem 1.2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -86,21 +85,15 @@
       text-align: center;
       padding-right: calc((100% - 80%) / 2);
       padding-left: calc((100% - 80%) / 2);
-      border-bottom: 1px solid #ccc;
+      width: 100%;
     }
 
-    .scroll-area:last-child {
-      border-bottom: none;
-    }
-
-    .scroll-area::after {
-      content: "";
-      display: block;
-      margin: 1.7rem auto;
-      width: 51px;
-      height: 1.7px;
-      background: #781d1d;
-      opacity: .4;
+    h2 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.275rem;
+      margin-bottom: .85rem;
+      text-transform: uppercase;
+      color: #0c3c26;
     }
 
     .work-item {
@@ -119,7 +112,6 @@
       font-weight: bold;
       text-transform: uppercase;
     }
-
     .work-item a:hover { color: #a83232; }
 
     .subheading {
@@ -140,7 +132,6 @@
       background: #fff;
       pointer-events: none;
     }
-
     .work-item:hover .thumbnail { display: block; }
 
     @media (max-width: 768px) {
@@ -179,11 +170,10 @@
   </header>
 
   <div class="scroll-wrapper">
-    <!-- Articles Section -->
-    <div class="scroll-section">
-      <h2>Articles</h2>
+    <div class="scroll-section" id="written">
+      <h2 style="color:#781d1d;">Articles</h2>
       <div class="scroll-area">
-        <!-- All work-items for Articles -->
+        <!-- Work Items -->
         <div class="work-item">
           <a href="https://nycdailypost.com/2023/04/04/world/money-ghanaians-discuss-economic-crisis-futures/" target="_blank">Money Doesn’t Like Noise.<img class="thumbnail" src="thumbnails/MoneyNoise.webp" alt="Two Ghanaians and city skyline"></a>
           <span class="subheading">Two young Ghanaians on their futures, and the current economic crisis.</span>
@@ -211,11 +201,9 @@
       </div>
     </div>
 
-    <!-- Multimedia Section -->
-    <div class="scroll-section">
-      <h2>Multimedia</h2>
+    <div class="scroll-section" id="multimedia">
+      <h2 style="color:#781d1d;">Multimedia</h2>
       <div class="scroll-area">
-        <!-- All work-items for Multimedia -->
         <div class="work-item">
           <a href="https://www.youtube.com/watch?v=4sDNW5FFVpc" target="_blank">Dorothy’s Utopia<img class="thumbnail" src="thumbnails/Dorothy.webp" alt="Dorothy Abu"></a>
           <span class="subheading">A BlackPrint Profile of Dorothy Abu</span>
