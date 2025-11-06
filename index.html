@@ -11,12 +11,13 @@
     body {
       font-family: Arial, sans-serif;
       height: 100vh;
-      overflow: hidden;
+      overflow: hidden;              /* page itself doesn’t scroll */
       display: flex;
       flex-direction: column;
       background-color: #fdfaf6;
     }
 
+    /* ===== HEADER ===== */
     header {
       padding: 1.2rem 1rem .5rem;
       border-bottom: 1px solid #e6dfd5;
@@ -47,23 +48,25 @@
       display: block;
       transition: transform 0.2s ease;
     }
-    .croc-icon:hover {
-      transform: scale(1.05);
-    }
+    .croc-icon:hover { transform: scale(1.05); }
 
+    /* ===== SCROLL LAYOUT ===== */
     .scroll-wrapper {
-      flex: 1;
-      overflow: hidden;
+      flex: 1 1 0;                  /* allow to shrink/grow */
+      min-height: 0;                /* CRITICAL: let children overflow/scroll */
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
     .scroll-section {
-      flex: 1;
+      flex: 1 1 0;                  /* CRITICAL: zero flex-basis */
+      min-height: 0;                /* CRITICAL */
       display: flex;
       flex-direction: column;
     }
 
+    /* Thick separator between sections (not after last) */
     .scroll-section:not(:last-of-type)::after {
       content: "";
       display: block;
@@ -74,9 +77,20 @@
       opacity: 0.6;
     }
 
+    .scroll-section h2 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.275rem;
+      margin: 0.9rem auto 0.5rem;
+      text-transform: uppercase;
+      color: #781d1d;
+      text-align: center;
+    }
+
     .scroll-area {
-      flex: 1;
+      flex: 1 1 auto;               /* fill remaining space, allow shrink */
+      min-height: 0;                /* CRITICAL */
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       padding: .1rem 1.7rem 1.2rem;
       display: flex;
       flex-direction: column;
@@ -84,17 +98,12 @@
       justify-content: flex-start;
       text-align: center;
       padding-right: calc((100% - 80%) / 2);
-      padding-left: calc((100% - 80%) / 2);
+      padding-left:  calc((100% - 80%) / 2);
       width: 100%;
+      border-bottom: 1px solid #ccc;
     }
-
-    h2 {
-      font-family: 'Barlow', sans-serif;
-      font-size: 1.275rem;
-      margin-bottom: .85rem;
-      text-transform: uppercase;
-      color: #0c3c26;
-    }
+    /* Remove bottom border from last scroll-area */
+    .scroll-section:last-of-type .scroll-area { border-bottom: none; }
 
     .work-item {
       margin-bottom: 1.7rem;
@@ -134,6 +143,7 @@
     }
     .work-item:hover .thumbnail { display: block; }
 
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       .thumbnail {
         display: block !important;
@@ -144,19 +154,12 @@
         border: none;
       }
     }
-
     @media (max-width: 640px) {
       header h1 { font-size: 1.6rem; }
       .croc-icon { width: 64px; }
     }
-
-    @media (max-width: 340px) {
-      .croc-icon { display: none; }
-    }
-
-    @media (max-width: 380px) {
-      header h1 { font-size: 1.45rem; }
-    }
+    @media (max-width: 340px) { .croc-icon { display: none; } }
+    @media (max-width: 380px) { header h1 { font-size: 1.45rem; } }
   </style>
 </head>
 <body>
@@ -170,54 +173,83 @@
   </header>
 
   <div class="scroll-wrapper">
+    <!-- Articles -->
     <div class="scroll-section" id="written">
-      <h2 style="color:#781d1d;">Articles</h2>
+      <h2>Articles</h2>
       <div class="scroll-area">
-        <!-- Work Items -->
         <div class="work-item">
-          <a href="https://nycdailypost.com/2023/04/04/world/money-ghanaians-discuss-economic-crisis-futures/" target="_blank">Money Doesn’t Like Noise.<img class="thumbnail" src="thumbnails/MoneyNoise.webp" alt="Two Ghanaians and city skyline"></a>
+          <a href="https://nycdailypost.com/2023/04/04/world/money-ghanaians-discuss-economic-crisis-futures/" target="_blank" rel="noopener noreferrer">
+            Money Doesn’t Like Noise.<img class="thumbnail" src="thumbnails/MoneyNoise.webp" alt="Two Ghanaians and city skyline">
+          </a>
           <span class="subheading">Two young Ghanaians on their futures, and the current economic crisis.</span>
         </div>
+
         <div class="work-item">
-          <a href="https://nycdailypost.com/2024/09/09/us/st-petersburg-times-black-pages-jordan-park-district/" target="_blank">Who Was Nat Cherry?<img class="thumbnail" src="thumbnails/Cherrys.webp" alt="Black community newspaper archive"></a>
+          <a href="https://nycdailypost.com/2024/09/09/us/st-petersburg-times-black-pages-jordan-park-district/" target="_blank" rel="noopener noreferrer">
+            Who Was Nat Cherry?<img class="thumbnail" src="thumbnails/Cherrys.webp" alt="Black community newspaper archive">
+          </a>
           <span class="subheading">How the St. Petersburg Times’ Black Pages strengthened community in the Jordan Park district.</span>
         </div>
+
         <div class="work-item">
-          <a href="https://nycdailypost.com/2025/01/06/world/ghana-new-president-struggling-economy-voting-irregularities/" target="_blank">Ghana Elects New President.<img class="thumbnail" src="thumbnails/GhanaElects.webp" alt="Ghanaian flag and ballot"></a>
+          <a href="https://nycdailypost.com/2025/01/06/world/ghana-new-president-struggling-economy-voting-irregularities/" target="_blank" rel="noopener noreferrer">
+            Ghana Elects New President.<img class="thumbnail" src="thumbnails/GhanaElects.webp" alt="Ghanaian flag and ballot">
+          </a>
           <span class="subheading">Ghana elects new president amid struggling economy, voting irregularities</span>
         </div>
+
         <div class="work-item">
-          <a href="https://nycdailypost.com/2023/05/12/world/geopolitics-of-the-grand-ethiopian-renaissance-dam/" target="_blank">Geopolitics of the Grand Renaissance Dam.<img class="thumbnail" src="thumbnails/EthiopiaDam.webp" alt="Ethiopian dam"></a>
+          <a href="https://nycdailypost.com/2023/05/12/world/geopolitics-of-the-grand-ethiopian-renaissance-dam/" target="_blank" rel="noopener noreferrer">
+            Geopolitics of the Grand Renaissance Dam.<img class="thumbnail" src="thumbnails/EthiopiaDam.webp" alt="Ethiopian dam">
+          </a>
           <span class="subheading">Ethiopia is aggressively pursuing the filling of the Grand Ethiopian Renaissance Dam.</span>
         </div>
+
         <div class="work-item">
-          <a href="https://nycdailypost.com/2024/08/28/entertainment/alternative-percussion-short-history-vibraphone/" target="_blank">Alternative Percussion<img class="thumbnail" src="thumbnails/Ayers.webp" alt="Vibraphone close-up"></a>
+          <a href="https://nycdailypost.com/2024/08/28/entertainment/alternative-percussion-short-history-vibraphone/" target="_blank" rel="noopener noreferrer">
+            Alternative Percussion<img class="thumbnail" src="thumbnails/Ayers.webp" alt="Vibraphone close-up">
+          </a>
           <span class="subheading">A short history of the vibraphone</span>
         </div>
+
         <div class="work-item">
-          <a href="https://nycdailypost.com/2024/12/29/world/ancient-grain-fonio-rural-economies-west-africa/" target="_blank">The Fonio Revival<img class="thumbnail" src="thumbnails/Fonio.webp" alt="Fonio grain"></a>
+          <a href="https://nycdailypost.com/2024/12/29/world/ancient-grain-fonio-rural-economies-west-africa/" target="_blank" rel="noopener noreferrer">
+            The Fonio Revival<img class="thumbnail" src="thumbnails/Fonio.webp" alt="Fonio grain">
+          </a>
           <span class="subheading">The West African grain fonio could soon become an international cash crop.</span>
         </div>
       </div>
     </div>
 
+    <!-- Multimedia -->
     <div class="scroll-section" id="multimedia">
-      <h2 style="color:#781d1d;">Multimedia</h2>
+      <h2>Multimedia</h2>
       <div class="scroll-area">
         <div class="work-item">
-          <a href="https://www.youtube.com/watch?v=4sDNW5FFVpc" target="_blank">Dorothy’s Utopia<img class="thumbnail" src="thumbnails/Dorothy.webp" alt="Dorothy Abu"></a>
+          <a href="https://www.youtube.com/watch?v=4sDNW5FFVpc" target="_blank" rel="noopener noreferrer">
+            Dorothy’s Utopia<img class="thumbnail" src="thumbnails/Dorothy.webp" alt="Dorothy Abu">
+          </a>
           <span class="subheading">A BlackPrint Profile of Dorothy Abu</span>
         </div>
+
         <div class="work-item">
-          <a href="https://www.youtube.com/watch?v=8HJbUOeWfEg" target="_blank">A Space Inbetween<img class="thumbnail" src="thumbnails/INbetween.webp" alt="Anthony & Donovan"></a>
+          <a href="https://www.youtube.com/watch?v=8HJbUOeWfEg" target="_blank" rel="noopener noreferrer">
+            A Space Inbetween<img class="thumbnail" src="thumbnails/INbetween.webp" alt="Anthony & Donovan">
+          </a>
           <span class="subheading">A BlackPrint Profile of Anthony and Donovan Handy</span>
         </div>
+
         <div class="work-item">
-          <a href="https://www.youtube.com/watch?v=_3K5EfZLAAk" target="_blank">Sundays With Denver<img class="thumbnail" src="thumbnails/Denver.webp" alt="Denver artist"></a>
+          <a href="https://www.youtube.com/watch?v=_3K5EfZLAAk" target="_blank" rel="noopener noreferrer">
+            Sundays With Denver<img class="thumbnail" src="thumbnails/Denver.webp" alt="Denver artist">
+          </a>
           <span class="subheading">Featuring Denver, an unhoused Austin artist</span>
         </div>
+
         <div class="work-item">
-          <a href="https://www.youtube.com/watch?v=8j15WrV8wG0" target="_blank">American As Apple Pie<img class="thumbnail" src="thumbnails/Apple Pie.webp" alt="Baseball vintage"></a>
+          <a href="https://www.youtube.com/watch?v=8j15WrV8wG0" target="_blank" rel="noopener noreferrer">
+            American As Apple Pie<img class="thumbnail" src="thumbnails/Apple Pie.webp" alt="Baseball vintage">
+          </a>
           <span class="subheading">Black minor league baseball players tell their story.</span>
         </div>
       </div>
