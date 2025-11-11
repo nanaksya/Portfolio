@@ -1,40 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>African Gruel</title>
-  <link rel="stylesheet" href="style.css"> <!-- connect to your same CSS -->
 
-   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+  <!-- Base styles (no external CSS needed) -->
+  <style>
+    /* ---- CSS Reset (light) ---- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- Theme tokens ---- */
+    :root{
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #5b5b5b;
+      --border: rgba(17,17,17,0.1);
+      --accent: #111111;        /* tweak if you want a warmer tone later */
+      --container: 1100px;
+      --radius: 16px;
     }
-    header {
+
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    .container{
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: 20px;
+    }
+
+    /* ---- Header ---- */
+    .site-header{
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.86);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      height: 64px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      padding: 20px;
     }
+
+    /* Left: your name */
+    .brand{
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .brand a{
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: background 160ms ease;
+    }
+    .brand a:hover{ background: rgba(17,17,17,0.06); }
+
+    /* Right: clickable logo / African Gruel link */
+    .logo-link{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      border-radius: 12px;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+    .logo-link:hover{ background: rgba(17,17,17,0.06); transform: translateY(-1px); }
+
+    .logo-mark{
+      height: 28px; width: 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: grid; place-items: center;
+      background: #fff;
+    }
+    .logo-dot{
+      width: 10px; height: 10px;
+      border-radius: 3px;
+      background: var(--accent);
+    }
+    .logo-text{
+      font-size: 14px; color: var(--muted);
+    }
+
+    /* ---- Page sections ---- */
+    .section{
+      padding-block: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero{
+      padding-block: 72px;
+    }
+    .hero h1{ font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin: 0 0 10px; }
+    .hero p{ color: var(--muted); font-size: 18px; margin: 0; }
+
+    /* ---- Buttons ---- */
+    .btn{
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--fg);
+      background: var(--fg);
+      color: white;
+      font-weight: 600; font-size: 14px;
+      transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 6px 18px rgba(17,17,17,0.12); }
+    .btn-secondary{
+      background: transparent; color: var(--fg);
+    }
+    .btn-row{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+    /* ---- Footer ---- */
+    .site-footer{ padding-block: 40px; color: var(--muted); font-size: 14px; }
   </style>
 </head>
 <body>
-   <header>
-    <div class="header-bar">
-      <h1><a href="index.html" style="text-decoration: underline black; color: #000000;">Nana Acheampong</a></h1>
-      
+
+  <!-- Header: name left, clickable logo right -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Left: link back to portfolio homepage -->
+      <div class="brand">
+        <a href="index.html" title="Back to portfolio">Nana Acheampong</a>
+      </div>
+
+      <!-- Right: logo that links to THIS page (can change to another path later) -->
+      <a class="logo-link" href="african-gruel.html" title="African Gruel">
+        <span class="logo-mark" aria-hidden="true"><span class="logo-dot"></span></span>
+        <span class="logo-text">African Gruel</span>
       </a>
     </div>
   </header>
 
+  <!-- Main content -->
   <main>
-    <h2>African Gruel</h2>
-    <p>This is a placeholder page. We’ll add visuals and signup sections here later.</p>
+    <!-- Hero -->
+    <section class="section hero">
+      <div class="container">
+        <h1>African Gruel</h1>
+        <p>An evolving prix-fixe dinner. This page will collect signups and share menu drafts with signees.</p>
+        <div class="btn-row">
+          <a class="btn" href="#signup">Reserve interest</a>
+          <a class="btn btn-secondary" href="#menu">See sample menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder sections you can replace later -->
+    <section id="menu" class="section">
+      <div class="container">
+        <h2 style="margin-top:0;">Sample Menu</h2>
+        <p class="muted">We’ll replace this with a visual card layout.</p>
+      </div>
+    </section>
+
+    <section id="signup" class="section">
+      <div class="container">
+        <h2 style="margin-top:0;">Sign Up</h2>
+        <p class="muted">Form goes here. For now, this is a placeholder.</p>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>© 2025 Nana Acheampong</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      © 2025 Nana Acheampong
+    </div>
   </footer>
+
 </body>
 </html>
