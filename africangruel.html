@@ -6,29 +6,52 @@
   <title>African Gruel</title>
 
   <style>
-    header {
-      padding: 1.2rem 1rem .5rem;
-      border-bottom: 1px solid #e6dfd5;
-    }
+  header {
+  padding: 1rem 1rem 0.5rem;
+  border-bottom: 1px solid #e6dfd5;
+}
 
-      header h1 {
-      justify-self: start;
-      text-align: left;
-      font-family: 'Barlow', sans-serif;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      color: #000000;
-      line-height: 1.1;
-      white-space: normal;
-    }
+/* container grid */
+.header-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center; /* centers text + logo vertically */
+  column-gap: 12px;
+}
 
-     .croc-icon {
-      justify-self: end;
-      width: 85px;
-      height: auto;
-      display: block;
-      transition: transform 0.2s ease;
-    }
+/* left side: name */
+header h1 {
+  margin: 0;                     /* removes browser’s default spacing */
+  text-align: left;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1;                /* keeps text height tight */
+  display: flex;                 /* centers the link inside the h1 */
+  align-items: center;
+}
+
+header h1 a {
+  text-decoration: underline black;
+  color: #000000;
+  display: inline-block;
+  padding-top: 2px;              /* tiny nudge to match logo baseline */
+}
+
+/* right side: logo */
+.croc-icon {
+  justify-self: end;
+  width: 85px;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
+  vertical-align: middle;        /* ensures image aligns with text midline */
+}
+
+.croc-icon:hover {
+  transform: scale(1.05);
+}
 
 
   </style>
