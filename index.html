@@ -166,11 +166,24 @@
     @media (max-width: 340px) { .croc-icon { display: none; } }
     @media (max-width: 380px) { header h1 { font-size: 1.45rem; } }
     @media (max-width: 480px) {
-  body {
-    transform: scale(0.80);
-    font-size: 0.85rem;
-    transform-origin: top center;
+  @media (max-width: 480px) {
+  html {
+    font-size: 85%; /* scales down everything that uses rem or em */
   }
+
+  body {
+    font-size: 0.85rem; /* backup for text using px or unset units */
+  }
+
+  img, .thumbnail {
+    max-width: 90%; /* slightly smaller images */
+  }
+
+  header h1 {
+    font-size: 1.3rem; /* ensure header fits */
+  }
+}
+
 }
   </style>
 </head>
