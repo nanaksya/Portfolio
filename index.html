@@ -184,30 +184,25 @@
   }
 }
 
-@media (max-width: 768px) and (orientation: landscape) {
+@media (orientation: landscape) and (max-width: 900px) {
   html {
-    font-size: 30%; /* shrink text and layout a bit */
+    font-size: 80%; /* shrink text and layout a bit */
   }
 
   body {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     overflow-x: hidden;
   }
 
   header {
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
   }
 
-  .thumbnail {
-    max-width: 85%;
-    margin: 0.25rem auto;
-  }
-
-  h1, h2, h3 {
-    font-size: 90%;
+  img, .thumbnail {
+    max-width: 90%;
+    height: auto;
   }
 }
-
 
 }
   </style>
